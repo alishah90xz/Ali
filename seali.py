@@ -84,10 +84,10 @@ async def watcher_outgoing(event):
    # if state['lang']:
  #       try:
             # استفاده از مترجم تازه برای هر پیام جهت پایداری
-            fresh_translator = Translator()
-            res = fresh_translator.translate(text, dest=state['lang'])
-            text = res.text
-            changed = True
+            #fresh_translator = Translator()
+            #res = fresh_translator.translate(text, dest=state['lang'])
+            #text = res.text
+          #  changed = True
         except: pass
     
     # استایل متن
