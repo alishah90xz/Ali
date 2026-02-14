@@ -1,0 +1,5 @@
+telethon
+pytz
+requests
+beautifulsoup4
+googletrans-new
