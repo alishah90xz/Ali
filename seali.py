@@ -2,7 +2,6 @@
 # pip install telethon googletrans==4.0.0-rc1 pytz requests beautifulsoup4
 
 from telethon import TelegramClient, events, functions, types
-from googletrans import Translator
 import asyncio
 import pytz
 import requests
@@ -14,8 +13,8 @@ import urllib.parse
 api_id = '28039994'
 api_hash = '00877cdcd706564a4de6abf7f7d64349'
 
-client = TelegramClient('ali_session', api_id, api_hash, receive_updates=True)
-translator = Translator()
+#client = TelegramClient('ali_session', api_id, api_hash, receive_updates=True)
+#translator = Translator()
 
 # --- دیتابیس وضعیت‌ها ---
 state = {
@@ -82,8 +81,8 @@ async def watcher_outgoing(event):
     changed = False
 
     # ترجمه خودکار
-    if state['lang']:
-        try:
+   # if state['lang']:
+ #       try:
             # استفاده از مترجم تازه برای هر پیام جهت پایداری
             fresh_translator = Translator()
             res = fresh_translator.translate(text, dest=state['lang'])
@@ -185,11 +184,11 @@ async def set_time_font(event):
     await event.edit(f"✅ سبک ساعت به {state['time_style']} تغییر کرد.")
 
 # --- قابلیت‌های متنی و ترجمه ---
-@client.on(events.NewMessage(outgoing=True, pattern=r'^\.(انگلیسی|روسی|چینی|افغانستانی) روشن$'))
-async def lang_setter(event):
-    m = {'انگلیسی':'en', 'روسی':'ru', 'چینی':'zh-cn', 'افغانستانی':'ps'}
-    state['lang'] = m[event.pattern_match.group(1)]
-    await event.edit(f"✅ ترجمه به {event.pattern_match.group(1)} فعال شد.")
+#@client.on(events.NewMessage(outgoing=True, pattern=r'^\.(انگلیسی|روسی|چینی|افغانستانی) روشن$'))
+#async def lang_setter(event):
+#    m = {'انگلیسی':'en', 'روسی':'ru', 'چینی':'zh-cn', 'افغانستانی':'ps'}
+   # state['lang'] = m[event.pattern_match.group(1)]
+   # await event.edit(f"✅ ترجمه به {event.pattern_match.group(1)} فعال شد.")
 
 @client.on(events.NewMessage(outgoing=True, pattern=r'^\.(بولد|اسپویلر|کد) روشن$'))
 async def style_setter(event):
