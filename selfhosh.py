@@ -253,4 +253,8 @@ async def main():
     await client.run_until_disconnected()
 
 if __name__ == '__main__':
-    client.loop.run_until_complete(main())
+    if __name__ == '__main__':
+    import asyncio
+    loop = asyncio.new_event_loop()  # لوپ جدید بساز
+    asyncio.set_event_loop(loop)     # ست کردنش
+    loop.run_until_complete(main())  # اجرا با لوپ جدید
