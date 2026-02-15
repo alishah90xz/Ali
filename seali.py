@@ -88,7 +88,7 @@ async def watcher_outgoing(event):
             #res = fresh_translator.translate(text, dest=state['lang'])
             #text = res.text
           #  changed = True
-        except: pass
+       # except: pass
     
     # استایل متن
     if state['style']:
